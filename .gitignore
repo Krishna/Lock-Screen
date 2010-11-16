@@ -1,0 +1,18 @@
+#### `.gitignore`
+# xcode noise
+build/*
+*.mode1v3
+*.mode2v3
+*.pbxuser
+*.perspectivev3
+
+# xcode 4 noise
+*.xcodeproj/*.xcworkspace
+*.xcodeproj/xcuserdata
+
+# SVN directories
+.svn
+
+# osx noise
+.DS_Store
+profile   
