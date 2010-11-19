@@ -17,6 +17,7 @@
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		D7B0BDB6128701900023F4C1 /* LCYLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */; };
 		D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */; };
+		D7E35D3C12970AAB00B70660 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7E35D3B12970AAB00B70660 /* ToDo.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		D7B0BDB3128701900023F4C1 /* LCYLockScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYLockScreenViewController.h; sourceTree = "<group>"; };
 		D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYLockScreenViewController.m; sourceTree = "<group>"; };
 		D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCYLockScreen.xib; sourceTree = "<group>"; };
+		D7E35D3B12970AAB00B70660 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				D7E35D3A12970A9400B70660 /* Docs */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -121,6 +124,14 @@
 				D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */,
 			);
 			name = "Lock Screen";
+			sourceTree = "<group>";
+		};
+		D7E35D3A12970A9400B70660 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				D7E35D3B12970AAB00B70660 /* ToDo.txt */,
+			);
+			name = Docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
 				D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */,
+				D7E35D3C12970AAB00B70660 /* ToDo.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

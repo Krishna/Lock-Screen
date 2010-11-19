@@ -1,0 +1,5 @@
+To Do
+
+- saving settings data (lock code) 
+- settings screen for locking
+- multitasking: lock the app, when the app goes into the background - if app settings say lock the app
