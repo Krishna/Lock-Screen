@@ -49,9 +49,7 @@
 	
 	if ( [self isAppLocked] )
 	{
-		lockScreenVC_ = [[LCYLockScreenViewController alloc] initWithNibName:@"LCYLockScreen" bundle:nil];
-		self.lockScreenVC.delegate = self;
-		[self.window addSubview:self.lockScreenVC.view];
+		[self lockApplication];
 	}
 	
     [self.window makeKeyAndVisible];
@@ -119,6 +117,16 @@
 {
 	// TODO: should look in app settings file to determine if the app was locked
 	return YES;
+}
+
+- (void) lockApplication;
+{
+	if (! lockScreenVC_)
+	{
+		lockScreenVC_ = [[LCYLockScreenViewController alloc] initWithNibName:@"LCYLockScreen" bundle:nil];
+		self.lockScreenVC.delegate = self;
+	}
+	[self.window addSubview:self.lockScreenVC.view];	
 }
 
 @end

@@ -13,4 +13,6 @@
 
 }
 
+- (IBAction) lockScreen: (id) sender;
+
 @end

@@ -29,5 +29,6 @@
 
 @interface LockScreenAppDelegate (AppLock)
 - (BOOL) isAppLocked;
+- (void) lockApplication;
 @end
 
