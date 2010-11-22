@@ -1,0 +1,137 @@
+//
+//  LCYLockSettingsViewController.m
+//  LockScreen
+//
+//  Created by Krishna Kotecha on 22/11/2010.
+//  Copyright 2010 Logic Colony Ltd. All rights reserved.
+//
+
+#import "LCYLockSettingsViewController.h"
+
+@implementation LCYLockSettingsViewController
+
+- (id) initWithNibName: (NSString *) nibNameOrNil bundle: (NSBundle *) nibBundleOrNil
+{
+	if ( (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) )
+	{
+		sectionTitles_ = [[NSArray alloc] initWithObjects:@"", @"", nil];
+		self.title = @"Passcode Lock";
+	}
+	return self;
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void) dealloc 
+{
+	[sectionTitles_ release];
+	sectionTitles_ = nil;
+    [super dealloc];
+}
+
+- (void) didReceiveMemoryWarning 
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Relinquish ownership any cached data, images, etc. that aren't in use.
+}
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void) viewDidUnload 
+{
+    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
+    // For example: self.myOutlet = nil;
+}
+
+
+#pragma mark -
+#pragma mark Table view data source
+
+- (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView 
+{
+    // Return the number of sections.
+    return 2;
+}
+
+
+- (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section 
+{
+	NSInteger result = 0;
+	
+	switch (section) {
+		case 0:
+			result = 1;
+			break;
+		case 1:
+			result = 1;
+			break;
+		default:
+			break;
+	}
+	
+    return result;
+}
+
+- (void) configureCell: (UITableViewCell *) cell forIndexPath: (NSIndexPath *) indexPath;
+{
+	NSInteger section = indexPath.section;
+
+	if (section == 0)
+	{
+		cell.textLabel.text = passCodeLockIsOn_ ? @"Turn Passcode Off" : @"Turn Passcode On";
+		cell.textLabel.textAlignment = UITextAlignmentCenter;
+		return;
+	}
+	
+	if (section == 1)
+	{
+		cell.textLabel.text = @"Change Passcode";
+		cell.textLabel.textAlignment = UITextAlignmentCenter;		
+		cell.textLabel.enabled = passCodeLockIsOn_;
+		cell.userInteractionEnabled = passCodeLockIsOn_;
+		return;	
+	}
+	
+}
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath 
+{    
+    static NSString *CellIdentifier = @"LockSettingsCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) 
+	{
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    // Configure the cell...
+    [self configureCell:cell forIndexPath:indexPath];
+    return cell;
+}
+
+
+
+#pragma mark -
+#pragma mark Table view delegate
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath 
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    // ...
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
+    */
+}
+
+
+
+@end
+

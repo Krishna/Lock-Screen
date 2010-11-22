@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCYDataBackedTableView.h"
 
-@interface RootViewController : UITableViewController 
+@interface RootViewController : LCYDataBackedTableView 
 {
 
 }
 
 - (IBAction) lockScreen: (id) sender;
+- (void) dummySetting;
+- (void) showLockScreenSettings;
 
 @end

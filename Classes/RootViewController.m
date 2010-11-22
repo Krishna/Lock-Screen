@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-
+#import "LCYLockSettingsViewController.h"
 
 @implementation RootViewController
 
@@ -28,99 +28,51 @@
     // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
-- (void) viewDidUnload 
-{
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
-}
-
 #pragma mark -
-#pragma mark Table view data source
+#pragma mark View lifecycle
 
-// Customize the number of sections in the table view.
-- (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView 
+- (void) viewDidLoad  
 {
-    return 1;
+    [super viewDidLoad];
+	//	NSString *myfile = [[NSBundle mainBundle] pathForResource:@"Foods" ofType:@"plist"];
+	//	[self loadTableDataFromPath:myfile];	
+	
+	NSDictionary *dataForTable = [[NSDictionary alloc] initWithObjectsAndKeys:
+								  // section titles...
+								  @"Comics", @"sectionTitle0",
+								  @"Settings", @"sectionTitle1",
+								  
+								  // data for section 0:
+								  [NSArray arrayWithObjects:
+								   [NSArray arrayWithObjects:
+									@"Batman", 
+									@"dummySetting", 
+									@"detailDisclosureButton", 
+									nil], 
+								   [NSArray arrayWithObjects:
+									@"Detective Comics", 
+									@"dummySetting", 
+									@"detailDisclosureButton", 
+									nil], 
+								   
+								   nil], @"0",
+								  
+								  // data for section 1:
+								  [NSArray arrayWithObjects:
+								   [NSArray arrayWithObjects:
+									@"Lock Screen", 
+									@"showLockScreenSettings", 
+									@"disclosure", 
+									nil], 								   
+								   nil], @"1",
+								  
+								  nil
+								  ];
+	
+	[self setDataUsingDictionary: dataForTable];
+	[dataForTable release];
 }
 
-
-// Customize the number of rows in the table view.
-- (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection: (NSInteger) section 
-{
-    return 0;
-}
-
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath: (NSIndexPath *) indexPath 
-{    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-	// Configure the cell.
-
-    return cell;
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-#pragma mark -
-#pragma mark Table view delegate
-
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath 
-{
-    
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
-}
 
 
 
@@ -133,6 +85,22 @@
 	[[[UIApplication sharedApplication] delegate] lockApplication];
 }
 
+#pragma mark -
+#pragma mark Settings
+
+- (void) dummySetting;
+{
+	NSLog(@"%s", _cmd);
+}
+
+- (void) showLockScreenSettings;
+{
+	NSLog(@"%s", _cmd);	
+	LCYLockSettingsViewController *lockSettingsVC = [[LCYLockSettingsViewController alloc] initWithNibName:@"LCYLockSettingsViewController" bundle:nil];
+	[[self navigationController] pushViewController:lockSettingsVC animated:YES];
+	[lockSettingsVC release];
+	
+}
 
 @end
 

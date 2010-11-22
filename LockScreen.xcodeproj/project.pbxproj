@@ -18,6 +18,9 @@
 		D7B0BDB6128701900023F4C1 /* LCYLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */; };
 		D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */; };
 		D7E35D3C12970AAB00B70660 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7E35D3B12970AAB00B70660 /* ToDo.txt */; };
+		D7EBD2A31299EB5D002DE800 /* LCYDataBackedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EBD2A21299EB5D002DE800 /* LCYDataBackedTableView.m */; };
+		D7EBD2E11299F197002DE800 /* LCYLockSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EBD2DF1299F197002DE800 /* LCYLockSettingsViewController.m */; };
+		D7EBD2E21299F197002DE800 /* LCYLockSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7EBD2E01299F197002DE800 /* LCYLockSettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,11 @@
 		D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYLockScreenViewController.m; sourceTree = "<group>"; };
 		D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCYLockScreen.xib; sourceTree = "<group>"; };
 		D7E35D3B12970AAB00B70660 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
+		D7EBD2A11299EB5D002DE800 /* LCYDataBackedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYDataBackedTableView.h; sourceTree = "<group>"; };
+		D7EBD2A21299EB5D002DE800 /* LCYDataBackedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYDataBackedTableView.m; sourceTree = "<group>"; };
+		D7EBD2DE1299F197002DE800 /* LCYLockSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYLockSettingsViewController.h; sourceTree = "<group>"; };
+		D7EBD2DF1299F197002DE800 /* LCYLockSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYLockSettingsViewController.m; sourceTree = "<group>"; };
+		D7EBD2E01299F197002DE800 /* LCYLockSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCYLockSettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,9 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D7EBD2DD1299F04B002DE800 /* Lock Screen Settings */,
+				D7EBD2A11299EB5D002DE800 /* LCYDataBackedTableView.h */,
+				D7EBD2A21299EB5D002DE800 /* LCYDataBackedTableView.m */,
 				D7B0BDB21287017B0023F4C1 /* Lock Screen */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
@@ -134,6 +145,16 @@
 			name = Docs;
 			sourceTree = "<group>";
 		};
+		D7EBD2DD1299F04B002DE800 /* Lock Screen Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D7EBD2DE1299F197002DE800 /* LCYLockSettingsViewController.h */,
+				D7EBD2DF1299F197002DE800 /* LCYLockSettingsViewController.m */,
+				D7EBD2E01299F197002DE800 /* LCYLockSettingsViewController.xib */,
+			);
+			name = "Lock Screen Settings";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,6 +209,7 @@
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
 				D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */,
 				D7E35D3C12970AAB00B70660 /* ToDo.txt in Resources */,
+				D7EBD2E21299F197002DE800 /* LCYLockSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +224,8 @@
 				1D3623260D0F684500981E51 /* LockScreenAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				D7B0BDB6128701900023F4C1 /* LCYLockScreenViewController.m in Sources */,
+				D7EBD2A31299EB5D002DE800 /* LCYDataBackedTableView.m in Sources */,
+				D7EBD2E11299F197002DE800 /* LCYLockSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
