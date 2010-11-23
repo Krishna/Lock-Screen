@@ -52,6 +52,7 @@ const int PASSCODE_LENGTH = 4;
 {
 	self.passCodeInputField = nil;
 	self.lockDigit_0 = nil;
+	self.lockDigit_1 = nil;	
 	self.lockDigit_2 = nil;
 	self.lockDigit_3 = nil;
 	self.enterPassCodeBanner = nil;

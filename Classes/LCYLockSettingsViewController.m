@@ -8,6 +8,12 @@
 
 #import "LCYLockSettingsViewController.h"
 
+@interface LCYLockSettingsViewController()
+- (void) handleTogglePasscode;
+- (void) handleChangePasscode;
+@end
+
+
 @implementation LCYLockSettingsViewController
 
 - (id) initWithNibName: (NSString *) nibNameOrNil bundle: (NSBundle *) nibBundleOrNil
@@ -121,16 +127,71 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath 
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-    */
+	if (indexPath.section == 0)
+	{
+		[self handleTogglePasscode];
+	}
+	
+	if (indexPath.section == 1)
+	{
+		[self handleChangePasscode];
+	}
 }
 
+- (void) handleTogglePasscode;
+{
+	NSLog(@"%s", _cmd);
+	if (passCodeLockIsOn_)
+	{
+		// ask user for passcode input
+		// if passcode is ok: passCodeLockIsOn_ = NO;
+		// else: reject attempt to switch off passcode
+	}
+	else 
+	{
+		LCYPassCodeEditorViewController *passCodeEditor = [[LCYPassCodeEditorViewController alloc] initWithNibName:@"LCYPassCodeEditorViewController" bundle:nil];
+		passCodeEditor.passCode = @"7890";
+		passCodeEditor.delegate = self;
+		[passCodeEditor attemptToSetANewPassCode];		
+		
+		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:passCodeEditor];
+		
+		[[self navigationController] presentModalViewController:navController animated:YES];
+//		[[self navigationController] pushViewController:passCodeEditor animated:YES];				
+		[passCodeEditor release];
+		[navController release];
+		
+		// set a passcode. User needs to input code twice.
+		// if ok: passCodeLockIsOn_ = YES;
+		// else: do nothing
+	}
+}
+
+- (void) handleChangePasscode;
+{
+	NSLog(@"%s", _cmd);
+	if (passCodeLockIsOn_)
+	{
+		// ask user for passcode input
+		// ask user for new passcode
+		// ask user for passcode confirm
+		// 
+	}
+	else 
+	{
+		NSAssert(NO, @"Unexpected case: should never reach here");
+	}
+}
+
+
+
+#pragma mark -
+#pragma mark LCYPassCodeEditorDelegate protocol implementation...
+- (void) passcodeEditor: (LCYPassCodeEditorViewController *) passcodeEditor newCode:(NSString *) newCode;
+{
+	NSLog(@"editor: %@ | newCode: %@", passcodeEditor, newCode);
+	[self.navigationController dismissModalViewControllerAnimated:YES];
+}
 
 
 @end

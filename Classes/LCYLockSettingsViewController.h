@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LCYPassCodeEditorViewController.h"
 
-@interface LCYLockSettingsViewController : UITableViewController 
+@interface LCYLockSettingsViewController : UITableViewController  <LCYPassCodeEditorDelegate>
 {
 	NSArray *sectionTitles_;
 	BOOL passCodeLockIsOn_;
 }
+
+// LCYPassCodeEditorDelegate protocol...
+- (void) passcodeEditor: (LCYPassCodeEditorViewController *) passcodeEditor newCode:(NSString *) newCode;
+
 
 @end

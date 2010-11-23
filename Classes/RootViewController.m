@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "LCYLockSettingsViewController.h"
+#import "LockScreenAppDelegate.h"
 
 @implementation RootViewController
 
@@ -82,7 +83,8 @@
 - (IBAction) lockScreen: (id) sender;
 {
 	NSLog(@"lock the screen here");
-	[[[UIApplication sharedApplication] delegate] lockApplication];
+	LockScreenAppDelegate *appDelegate =  (LockScreenAppDelegate *)	[[UIApplication sharedApplication] delegate];
+	[appDelegate lockApplication];
 }
 
 #pragma mark -
