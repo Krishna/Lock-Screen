@@ -7,8 +7,12 @@
 //
 
 #import "LCYPassCodeEditorViewController.h"
+#import "LCYChangePasscodeStateMachine.h"
 
 @interface LCYPassCodeEditorViewController(InputHandling)
+
+- (void) makeCancelButton;
+
 - (void) adjustLockDigitsForDeletePress;
 - (void) updateLockDigitsForKeyPress;
 - (void) setLockDigit: (int) lockDigitPosition isOn: (BOOL) on;
@@ -17,7 +21,7 @@
 - (void) resetUIState;
 
 - (void) handleCompleteUserInput:(NSString *) userInput;
-- (void) scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo: (NSString *) newPrompt;
+- (void) scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo: (NSString *) newPrompt errorText: (NSString *) errorText;
 - (void) moveLockDigitsToOffscreenRight;
 - (void) scrollLockDigitsFromRightOfScreenBackToCenter;
 - (void) lockDigitsScrollOffScreenDidStop: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context; 
@@ -58,7 +62,23 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	self.promptLabel = nil;
 	self.errorLabel = nil;
 	
+	[stateMachine_ release];
+	stateMachine_ = nil;
+	
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Initialization
+
+- (id) initWithNibName: (NSString *) nibNameOrNil bundle: (NSBundle *) nibBundleOrNil;
+{
+	if ( (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) )
+	{
+		stateMachine_ = [[LCYChangePasscodeStateMachine alloc] init];
+		stateMachine_.existingPasscode = @"7890";
+	}
+	return self;
 }
 
 #pragma mark -
@@ -83,6 +103,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 {
 	[super viewWillAppear: animated];
 //	[self showBanner:self.enterPassCodeBanner];
+	self.promptLabel.text = [stateMachine_ currentPromptText];
 	[self.passCodeInputField becomeFirstResponder];	
 	acceptInput_ = YES;
 }
@@ -90,13 +111,23 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 #pragma mark -
 #pragma mark Set up code
 
+- (void) makeCancelButton;
+{
+	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    self.navigationItem.rightBarButtonItem = cancelButtonItem;
+    [cancelButtonItem release];	
+}
+
 - (void) attemptToSetANewPassCode;
 {
 	self.title = @"Set Passcode";
-	
-	UIBarButtonItem *cancelButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = cancelButtonItem;
-    [cancelButtonItem release];
+	[self makeCancelButton];
+}
+
+- (void) attemptToDisablePassCode;
+{
+	self.title = @"Turn off Passcode";
+	[self makeCancelButton];	
 }
 
 #pragma mark -
@@ -192,7 +223,28 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 }
 
 
+- (void) handleCompleteUserInput:(NSString *) userInput;
+{
+	[stateMachine_ transitionWithInput:userInput];
+	NSLog(@"stateMachine_: %@", stateMachine_);
+	
+	if ([stateMachine_ gotCompletionState])
+	{
+		[self.delegate passcodeEditor:self newCode:stateMachine_.newPasscode];
+	}
+	else 
+	{
+		NSString *promptText = [stateMachine_ currentPromptText];
+		NSString *errorText = [stateMachine_ currentErrorText];
+		
+		//	[self scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo:@"Re-enter your new passcode"];
+		[self scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo:promptText errorText:errorText];		
+	}
 
+}
+
+
+/*
 - (void) handleCompleteUserInput:(NSString *) userInput;
 {
 	NSLog(@"%s got: %@", _cmd, userInput);
@@ -211,8 +263,9 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	
 	// change label to: Re-enter your new passcode
 }
+*/
 
-- (void) scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo: (NSString *) newPrompt;
+- (void) scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo: (NSString *) newPrompt errorText: (NSString *) errorText;
 {
 	acceptInput_ = NO;
     [UIView beginAnimations:nil context:NULL];
@@ -224,6 +277,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	self.digitsContainerView.frame	= newFrame;
 	
 	self.promptLabel.text = newPrompt;
+	self.errorLabel.text = errorText;
 	
     [UIView commitAnimations];		
 }
@@ -251,13 +305,14 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 - (void) lockDigitsScrollOffScreenDidStop: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context; 
 {
 	[self moveLockDigitsToOffscreenRight];
+	[self resetUIState];
 	[self scrollLockDigitsFromRightOfScreenBackToCenter];
 }
 
 - (void) lockDigitsScrollBackOnScreenDidStop: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context; 
 {
 	acceptInput_ = YES;
-	NSLog(@"finito");
+	NSLog(@"animation finito");
 }
 
 @end

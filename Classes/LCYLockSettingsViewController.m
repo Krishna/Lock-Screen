@@ -141,30 +141,24 @@
 - (void) handleTogglePasscode;
 {
 	NSLog(@"%s", _cmd);
+
+	LCYPassCodeEditorViewController *passCodeEditor = [[LCYPassCodeEditorViewController alloc] initWithNibName:@"LCYPassCodeEditorViewController" bundle:nil];
+	passCodeEditor.passCode = @"7890";
+	passCodeEditor.delegate = self;
+	
 	if (passCodeLockIsOn_)
 	{
-		// ask user for passcode input
-		// if passcode is ok: passCodeLockIsOn_ = NO;
-		// else: reject attempt to switch off passcode
+		[passCodeEditor attemptToDisablePassCode];
 	}
 	else 
 	{
-		LCYPassCodeEditorViewController *passCodeEditor = [[LCYPassCodeEditorViewController alloc] initWithNibName:@"LCYPassCodeEditorViewController" bundle:nil];
-		passCodeEditor.passCode = @"7890";
-		passCodeEditor.delegate = self;
-		[passCodeEditor attemptToSetANewPassCode];		
-		
-		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:passCodeEditor];
-		
-		[[self navigationController] presentModalViewController:navController animated:YES];
-//		[[self navigationController] pushViewController:passCodeEditor animated:YES];				
-		[passCodeEditor release];
-		[navController release];
-		
-		// set a passcode. User needs to input code twice.
-		// if ok: passCodeLockIsOn_ = YES;
-		// else: do nothing
+		[passCodeEditor attemptToSetANewPassCode];				
 	}
+	
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:passCodeEditor];	
+	[[self navigationController] presentModalViewController:navController animated:YES];
+	[passCodeEditor release];
+	[navController release];		
 }
 
 - (void) handleChangePasscode;
@@ -191,6 +185,17 @@
 {
 	NSLog(@"editor: %@ | newCode: %@", passcodeEditor, newCode);
 	[self.navigationController dismissModalViewControllerAnimated:YES];
+	if (newCode)
+	{
+		// TODO: save the new passcode
+		passCodeLockIsOn_ = YES;
+	}
+	else 
+	{
+		passCodeLockIsOn_ = NO;
+	}
+
+	[self.tableView reloadData];	
 }
 
 
