@@ -52,9 +52,8 @@ NSString* NSStringFromLCYSetPasscodeStates (LCYSetPasscodeStates state)
 
 - (NSString *) description;
 {
-	return [NSString stringWithFormat:@"state: %@ | existingPasscode: %@ | new: %@", 
+	return [NSString stringWithFormat:@"state: %@ | new: %@", 
 			NSStringFromLCYSetPasscodeStates(state_),
-			self.existingPasscode,
 			self.newPasscode
 			];
 }
@@ -158,7 +157,6 @@ NSString* NSStringFromLCYSetPasscodeStates (LCYSetPasscodeStates state)
 	state_ = LCYSetPasscodeStatesGetNewPassword;
 	currentErrorText_ = nil;
 	self.newPasscode = nil;
-	self.existingPasscode = nil;
 }
 
 @end
