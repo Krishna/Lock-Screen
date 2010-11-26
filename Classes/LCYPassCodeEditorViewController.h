@@ -12,6 +12,7 @@
 @class LCYPassCodeEditorViewController;
 @class LCYChangePasscodeStateMachine;
 @class LCYTurnOffPasscodeStateMachine;
+@class LCYSetPasscodeStateMachine;
 
 @protocol LCYPassCodeEditorDelegate <NSObject>
 - (void) passcodeEditor: (LCYPassCodeEditorViewController *) passcodeEditor newCode:(NSString *) newCode;
@@ -40,6 +41,7 @@
 	
 	LCYChangePasscodeStateMachine  *changePasscodeStateMachine_;
 	LCYTurnOffPasscodeStateMachine *turnOffPasscodeStateMachine_;
+	LCYSetPasscodeStateMachine	*setPasscodeStateMachine_;
 }
 
 @property (nonatomic, assign) IBOutlet id<LCYPassCodeEditorDelegate> delegate;
