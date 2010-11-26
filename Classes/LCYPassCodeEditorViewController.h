@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCYPasscodeUIStateMachine.h"
 
 @class LCYPassCodeEditorViewController;
 @class LCYChangePasscodeStateMachine;
+@class LCYTurnOffPasscodeStateMachine;
 
 @protocol LCYPassCodeEditorDelegate <NSObject>
 - (void) passcodeEditor: (LCYPassCodeEditorViewController *) passcodeEditor newCode:(NSString *) newCode;
@@ -34,7 +36,10 @@
 	
 	NSString *passCode_;
 	BOOL acceptInput_;
-	LCYChangePasscodeStateMachine *stateMachine_;
+	LCYPasscodeUIStateMachine *stateMachine_;
+	
+	LCYChangePasscodeStateMachine  *changePasscodeStateMachine_;
+	LCYTurnOffPasscodeStateMachine *turnOffPasscodeStateMachine_;
 }
 
 @property (nonatomic, assign) IBOutlet id<LCYPassCodeEditorDelegate> delegate;

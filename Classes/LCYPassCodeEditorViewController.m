@@ -8,6 +8,7 @@
 
 #import "LCYPassCodeEditorViewController.h"
 #import "LCYChangePasscodeStateMachine.h"
+#import "LCYTurnOffPasscodeStateMachine.h"
 
 @interface LCYPassCodeEditorViewController(InputHandling)
 
@@ -62,7 +63,13 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	self.promptLabel = nil;
 	self.errorLabel = nil;
 	
-	[stateMachine_ release];
+	[changePasscodeStateMachine_ release];
+	changePasscodeStateMachine_ = nil;
+	
+	[turnOffPasscodeStateMachine_ release];
+	turnOffPasscodeStateMachine_ = nil;
+	
+	//[stateMachine_ release];
 	stateMachine_ = nil;
 	
 	[super dealloc];
@@ -75,8 +82,10 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 {
 	if ( (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) )
 	{
-		stateMachine_ = [[LCYChangePasscodeStateMachine alloc] init];
-		stateMachine_.existingPasscode = @"7890";
+		changePasscodeStateMachine_ = [[LCYChangePasscodeStateMachine alloc] init];
+		turnOffPasscodeStateMachine_ = [[LCYTurnOffPasscodeStateMachine alloc] init];				
+//		stateMachine_ = [[LCYChangePasscodeStateMachine alloc] init];
+//		stateMachine_.existingPasscode = @"7890";
 	}
 	return self;
 }
@@ -121,12 +130,18 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 - (void) attemptToSetANewPassCode;
 {
 	self.title = @"Set Passcode";
+	stateMachine_ = changePasscodeStateMachine_;
+	stateMachine_.existingPasscode = @"7890";
+	
 	[self makeCancelButton];
 }
 
 - (void) attemptToDisablePassCode;
 {
 	self.title = @"Turn off Passcode";
+	stateMachine_ = turnOffPasscodeStateMachine_;
+	stateMachine_.existingPasscode = @"7890";
+	
 	[self makeCancelButton];	
 }
 

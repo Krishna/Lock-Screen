@@ -7,16 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LCYPasscodeUIStateMachine.h"
 
 typedef enum 
 { 
-	confirmExistingPassword,
-	getNewPassword,
-	confirmNewPassword,
-	done,
+	LCYChangePasscodeStatesConfirmExistingPassword,
+	LCYChangePasscodeStatesGetNewPassword,
+	LCYChangePasscodeStatesConfirmNewPassword,
+	LCYChangePasscodeStatesDone,
 } LCYChangePasscodeStates;
 
-@interface LCYChangePasscodeStateMachine : NSObject 
+@interface LCYChangePasscodeStateMachine : LCYPasscodeUIStateMachine 
 {
 	LCYChangePasscodeStates state_;
 

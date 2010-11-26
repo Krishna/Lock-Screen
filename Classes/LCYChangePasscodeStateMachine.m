@@ -9,21 +9,21 @@
 #import "LCYChangePasscodeStateMachine.h"
 
 
-NSString* NSStringFromState (LCYChangePasscodeStates state)
+NSString* NSStringFromLCYChangePasscodeStates (LCYChangePasscodeStates state)
 {
 	NSString *result = nil;
 	switch (state) 
 	{
-		case confirmExistingPassword:
+		case LCYChangePasscodeStatesConfirmExistingPassword:
 			result = @"confirmExistingPassword";
 			break;
-		case getNewPassword:
+		case LCYChangePasscodeStatesGetNewPassword:
 			result = @"getNewPassword";
 			break;
-		case confirmNewPassword:
+		case LCYChangePasscodeStatesConfirmNewPassword:
 			result = @"confirmNewPassword";
 			break;
-		case done:
+		case LCYChangePasscodeStatesDone:
 			result = @"done";
 			break;
 		default:
@@ -54,7 +54,7 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 {
 	if ( (self = [super init]) )
 	{
-		state_ = confirmExistingPassword;
+		state_ = LCYChangePasscodeStatesConfirmExistingPassword;
 	}
 	return self;
 }
@@ -63,7 +63,7 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 - (NSString *) description;
 {
 	return [NSString stringWithFormat:@"state: %@ | existingPasscode: %@ | new: %@ | confirm: %@", 
-			NSStringFromState(state_),
+			NSStringFromLCYChangePasscodeStates(state_),
 			self.existingPasscode,
 			self.newPasscode,
 			self.confirmNewPasscode
@@ -75,16 +75,16 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 	currentErrorText_ = nil;
 	switch (state_) 
 	{
-		case confirmExistingPassword:
-			state_ = getNewPassword;
+		case LCYChangePasscodeStatesConfirmExistingPassword:
+			state_ = LCYChangePasscodeStatesGetNewPassword;
 			break;
-		case getNewPassword:
-			state_ = confirmNewPassword;
+		case LCYChangePasscodeStatesGetNewPassword:
+			state_ = LCYChangePasscodeStatesConfirmNewPassword;
 			break;
-		case confirmNewPassword:
-			state_ = done;
+		case LCYChangePasscodeStatesConfirmNewPassword:
+			state_ = LCYChangePasscodeStatesDone;
 			break;
-		case done:
+		case LCYChangePasscodeStatesDone:
 			break;
 		default:
 			NSAssert(NO, @"Unknown state");
@@ -96,17 +96,17 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 {
 	switch (state_) 
 	{
-		case confirmExistingPassword:
+		case LCYChangePasscodeStatesConfirmExistingPassword:
 			currentErrorText_ = @"Incorrect passcode. Try again.";
 			break;
-		case getNewPassword:
+		case LCYChangePasscodeStatesGetNewPassword:
 			break;
-		case confirmNewPassword:
+		case LCYChangePasscodeStatesConfirmNewPassword:
 			self.newPasscode = nil;
 			currentErrorText_ = @"Passcode did not match. Try again.";
-			state_ = getNewPassword;
+			state_ = LCYChangePasscodeStatesGetNewPassword;
 			break;
-		case done:
+		case LCYChangePasscodeStatesDone:
 			break;
 		default:
 			NSAssert(NO, @"Unknown state");
@@ -118,7 +118,7 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 {
 	switch (state_) 
 	{
-		case confirmExistingPassword:
+		case LCYChangePasscodeStatesConfirmExistingPassword:
 			if ([self.existingPasscode isEqualToString:input])
 			{
 				[self successTransition];
@@ -129,12 +129,12 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 			}
 			break;
 			
-		case getNewPassword:
+		case LCYChangePasscodeStatesGetNewPassword:
 			self.newPasscode = input;
 			[self successTransition];
 			break;
 			
-		case confirmNewPassword:
+		case LCYChangePasscodeStatesConfirmNewPassword:
 			if ([self.newPasscode isEqualToString:input])
 			{
 				[self successTransition];
@@ -146,7 +146,7 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 
 			break;
 			
-		case done:
+		case LCYChangePasscodeStatesDone:
 			break;
 			
 		default:
@@ -160,16 +160,16 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 	NSString *result = nil;
 	switch (state_) 
 	{
-		case confirmExistingPassword:
+		case LCYChangePasscodeStatesConfirmExistingPassword:
 			result = @"Enter existing passcode";
 			break;
-		case getNewPassword:
+		case LCYChangePasscodeStatesGetNewPassword:
 			result = @"Enter new passcode";
 			break;
-		case confirmNewPassword:
+		case LCYChangePasscodeStatesConfirmNewPassword:
 			result = @"Re-enter new passcode";
 			break;
-		case done:
+		case LCYChangePasscodeStatesDone:
 			result = @"New passcode set";
 			break;
 		default:
@@ -181,7 +181,7 @@ NSString* NSStringFromState (LCYChangePasscodeStates state)
 
 - (BOOL) gotCompletionState;
 {
-	return (state_ == done);
+	return (state_ == LCYChangePasscodeStatesDone);
 }
 
 @end
