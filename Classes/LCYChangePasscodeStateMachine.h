@@ -41,6 +41,6 @@ typedef enum
 - (NSString *) currentPromptText;
 
 - (BOOL) gotCompletionState;
-
+- (void) reset;
 
 @end

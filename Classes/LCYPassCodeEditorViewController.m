@@ -131,6 +131,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 {
 	self.title = @"Set Passcode";
 	stateMachine_ = changePasscodeStateMachine_;
+	[stateMachine_ reset];
 	stateMachine_.existingPasscode = @"7890";
 	
 	[self makeCancelButton];
@@ -140,6 +141,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 {
 	self.title = @"Turn off Passcode";
 	stateMachine_ = turnOffPasscodeStateMachine_;
+	[stateMachine_ reset];	
 	stateMachine_.existingPasscode = @"7890";
 	
 	[self makeCancelButton];	

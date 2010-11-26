@@ -181,4 +181,12 @@ NSString* NSStringFromLCYChangePasscodeStates (LCYChangePasscodeStates state)
 	return (state_ == LCYChangePasscodeStatesDone);
 }
 
+- (void) reset;
+{
+	state_ = LCYChangePasscodeStatesConfirmExistingPassword;
+	currentErrorText_ = nil;
+	self.newPasscode = nil;
+	self.existingPasscode = nil;
+}
+
 @end

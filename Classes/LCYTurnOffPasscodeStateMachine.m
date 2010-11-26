@@ -139,4 +139,12 @@ NSString* NSStringFromLCYTurnOffPasscodeStates (LCYTurnOffPasscodeStates state)
 {
 }
 
+- (void) reset;
+{
+	state_ = LCYTurnOffPasscodeStatesConfirmExistingPassword;
+	self.newPasscode = nil;
+	self.existingPasscode = nil;
+	currentErrorText_ = nil;
+}
+
 @end

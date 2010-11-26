@@ -29,4 +29,8 @@
 	return NO;
 }
 
+- (void) reset;
+{
+}
+
 @end

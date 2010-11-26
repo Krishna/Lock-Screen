@@ -21,5 +21,7 @@
 
 - (void) transitionWithInput:(NSString *) input;
 - (BOOL) gotCompletionState;
+- (void) reset;
+
 
 @end
