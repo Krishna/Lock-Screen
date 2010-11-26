@@ -22,6 +22,7 @@
 		D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */; };
 		D7C54379129EB04400ACAC4C /* LCYTurnOffPasscodeStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C54378129EB04400ACAC4C /* LCYTurnOffPasscodeStateMachine.m */; };
 		D7C5438E129EB62200ACAC4C /* LCYPasscodeUIStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C5438D129EB62200ACAC4C /* LCYPasscodeUIStateMachine.m */; };
+		D7C54475129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C54474129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.m */; };
 		D7E35D3C12970AAB00B70660 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = D7E35D3B12970AAB00B70660 /* ToDo.txt */; };
 		D7EBD2A31299EB5D002DE800 /* LCYDataBackedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EBD2A21299EB5D002DE800 /* LCYDataBackedTableView.m */; };
 		D7EBD2E11299F197002DE800 /* LCYLockSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EBD2DF1299F197002DE800 /* LCYLockSettingsViewController.m */; };
@@ -54,6 +55,8 @@
 		D7C54378129EB04400ACAC4C /* LCYTurnOffPasscodeStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYTurnOffPasscodeStateMachine.m; sourceTree = "<group>"; };
 		D7C5438C129EB62200ACAC4C /* LCYPasscodeUIStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYPasscodeUIStateMachine.h; sourceTree = "<group>"; };
 		D7C5438D129EB62200ACAC4C /* LCYPasscodeUIStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYPasscodeUIStateMachine.m; sourceTree = "<group>"; };
+		D7C54473129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYSetPasscodeStateMachine.h; sourceTree = "<group>"; };
+		D7C54474129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYSetPasscodeStateMachine.m; sourceTree = "<group>"; };
 		D7E35D3B12970AAB00B70660 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		D7EBD2A11299EB5D002DE800 /* LCYDataBackedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYDataBackedTableView.h; sourceTree = "<group>"; };
 		D7EBD2A21299EB5D002DE800 /* LCYDataBackedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYDataBackedTableView.m; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 			children = (
 				D7C5438C129EB62200ACAC4C /* LCYPasscodeUIStateMachine.h */,
 				D7C5438D129EB62200ACAC4C /* LCYPasscodeUIStateMachine.m */,
+				D7C54473129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.h */,
+				D7C54474129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.m */,
 				D7A25D7F129C854D0028E793 /* LCYChangePasscodeStateMachine.h */,
 				D7A25D80129C854D0028E793 /* LCYChangePasscodeStateMachine.m */,
 				D7C54377129EB04400ACAC4C /* LCYTurnOffPasscodeStateMachine.h */,
@@ -270,6 +275,7 @@
 				D7A25D81129C854D0028E793 /* LCYChangePasscodeStateMachine.m in Sources */,
 				D7C54379129EB04400ACAC4C /* LCYTurnOffPasscodeStateMachine.m in Sources */,
 				D7C5438E129EB62200ACAC4C /* LCYPasscodeUIStateMachine.m in Sources */,
+				D7C54475129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
