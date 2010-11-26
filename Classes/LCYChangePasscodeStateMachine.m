@@ -36,7 +36,6 @@ NSString* NSStringFromLCYChangePasscodeStates (LCYChangePasscodeStates state)
 @implementation LCYChangePasscodeStateMachine
 
 @synthesize newPasscode = newPasscode_;
-@synthesize confirmNewPasscode = confirmNewPasscode_;
 @synthesize existingPasscode = existingPasscode_;
 @synthesize currentErrorText = currentErrorText_;
 
@@ -44,7 +43,6 @@ NSString* NSStringFromLCYChangePasscodeStates (LCYChangePasscodeStates state)
 {
 	self.existingPasscode = nil;
 	self.newPasscode = nil;
-	self.confirmNewPasscode = nil;
 	currentErrorText_ = nil;
 	
 	[super dealloc];
@@ -62,11 +60,10 @@ NSString* NSStringFromLCYChangePasscodeStates (LCYChangePasscodeStates state)
 
 - (NSString *) description;
 {
-	return [NSString stringWithFormat:@"state: %@ | existingPasscode: %@ | new: %@ | confirm: %@", 
+	return [NSString stringWithFormat:@"state: %@ | existingPasscode: %@ | new: %@", 
 			NSStringFromLCYChangePasscodeStates(state_),
 			self.existingPasscode,
-			self.newPasscode,
-			self.confirmNewPasscode
+			self.newPasscode
 			];
 }
 

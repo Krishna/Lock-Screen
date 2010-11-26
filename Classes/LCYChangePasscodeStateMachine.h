@@ -23,7 +23,6 @@ typedef enum
 
 	NSString *existingPasscode_;
 	NSString *newPasscode_;
-	NSString *confirmNewPasscode_;	
 	
 	NSString *currentErrorText_;
 }
@@ -31,7 +30,6 @@ typedef enum
 
 @property (nonatomic, copy) NSString* existingPasscode;
 @property (nonatomic, copy) NSString* newPasscode;
-@property (nonatomic, copy) NSString* confirmNewPasscode;
 
 @property (nonatomic, readonly) NSString *currentErrorText;
 
