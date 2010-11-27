@@ -89,8 +89,6 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 		changePasscodeStateMachine_ = [[LCYChangePasscodeStateMachine alloc] init];
 		turnOffPasscodeStateMachine_ = [[LCYTurnOffPasscodeStateMachine alloc] init];
 		setPasscodeStateMachine_ = [[LCYSetPasscodeStateMachine alloc] init];
-//		stateMachine_ = [[LCYChangePasscodeStateMachine alloc] init];
-//		stateMachine_.existingPasscode = @"7890";
 	}
 	return self;
 }
@@ -145,7 +143,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	self.title = @"Change Passcode";
 	stateMachine_ = changePasscodeStateMachine_;
 	[stateMachine_ reset];
-	stateMachine_.existingPasscode = @"7890";
+	stateMachine_.existingPasscode = self.passCode;
 	
 	[self makeCancelButton];
 }
@@ -156,7 +154,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	self.title = @"Turn off Passcode";
 	stateMachine_ = turnOffPasscodeStateMachine_;
 	[stateMachine_ reset];	
-	stateMachine_.existingPasscode = @"7890";
+	stateMachine_.existingPasscode = self.passCode;
 	
 	[self makeCancelButton];	
 }
