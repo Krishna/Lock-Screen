@@ -44,6 +44,7 @@ const int PASSCODE_LENGTH = 4;
 @synthesize wrongPassCodeBanner = wrongPassCodeBanner_;
 
 @synthesize delegate = delegate_;
+@synthesize passCode = passCode_;
 
 #pragma mark -
 #pragma mark Memory Management
@@ -208,13 +209,6 @@ const int PASSCODE_LENGTH = 4;
 - (BOOL) isShowingBanner: (UIView *) bannerView;
 {
 	return (bannerView.superview == self.view);
-}
-
-
-- (NSString *) passCode;
-{
-	// TODO: passcode should be loaded in from app setting file and passed into this class.
-	return @"7890";
 }
 
 @end

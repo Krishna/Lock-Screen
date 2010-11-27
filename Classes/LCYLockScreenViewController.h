@@ -29,6 +29,8 @@
 	UIView *wrongPassCodeBanner_;
 	
 	id<LCYLockScreenDelegate> delegate_;
+	
+	NSString *passCode_;	
 }
 
 @property (nonatomic, retain) IBOutlet UIView *lockDigit_0;
@@ -42,6 +44,8 @@
 @property (nonatomic, retain) IBOutlet UIView *wrongPassCodeBanner;
 
 @property (nonatomic, assign) IBOutlet id<LCYLockScreenDelegate> delegate;
+
+@property (nonatomic, copy) NSString* passCode;
 
 @end
 
