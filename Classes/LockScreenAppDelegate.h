@@ -33,6 +33,7 @@
 
 @interface LockScreenAppDelegate (AppLock)
 - (BOOL) isAppLocked;
+- (NSString *) appLockPasscode;
 - (void) lockApplication;
 @end
 

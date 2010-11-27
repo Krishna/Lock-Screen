@@ -137,11 +137,19 @@
 	return appSettings.lockScreenPasscodeIsOn;
 }
 
+- (NSString *) appLockPasscode;
+{
+	LCYAppSettings *appSettings = [self appSettings];	
+	return appSettings.lockScreenPasscode;
+}
+
 - (void) lockApplication;
 {
 	if (! lockScreenVC_)
 	{
 		lockScreenVC_ = [[LCYLockScreenViewController alloc] initWithNibName:@"LCYLockScreen" bundle:nil];
+
+		self.lockScreenVC.passCode = [self appLockPasscode];
 		self.lockScreenVC.delegate = self;
 	}
 	[self.window addSubview:self.lockScreenVC.view];	
