@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "LCYLockScreenViewController.h"
 
+@class LCYAppSettings;
+
 @interface LockScreenAppDelegate : NSObject <UIApplicationDelegate, LCYLockScreenDelegate> 
 {    
     UIWindow *window;
     UINavigationController *navigationController;
 	
 	LCYLockScreenViewController *lockScreenVC_;
+	
+	LCYAppSettings *appSettings_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -23,7 +27,7 @@
 @property (nonatomic, retain) IBOutlet LCYLockScreenViewController *lockScreenVC;
 
 - (void) lockScreen: (LCYLockScreenViewController *) lockScreen unlockedApp: (BOOL) unlocked;
-
+-(LCYAppSettings *) appSettings;
 @end
 
 

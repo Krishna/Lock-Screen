@@ -9,6 +9,7 @@
 #import "LockScreenAppDelegate.h"
 #import "RootViewController.h"
 #import "LCYLockScreenViewController.h"
+#import "LCYAppSettings.h"
 
 @implementation LockScreenAppDelegate
 
@@ -22,6 +23,8 @@
 
 - (void) dealloc 
 {
+	[appSettings_ release];
+	
 	self.lockScreenVC = nil;
 	[navigationController release];
 	[window release];
@@ -107,6 +110,21 @@
 		self.lockScreenVC = nil;
 	}
 }
+
+#pragma mark -
+#pragma mark App Settings stuff
+
+- (LCYAppSettings *) appSettings
+{
+    if (appSettings_ != nil) 
+	{
+        return appSettings_;
+    }
+	
+	appSettings_ = [[LCYAppSettings alloc] init];
+	return appSettings_;
+}
+
 
 @end
 
