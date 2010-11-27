@@ -132,9 +132,9 @@
 @implementation LockScreenAppDelegate (AppLock)
 
 - (BOOL) isAppLocked;
-{
-	// TODO: should look in app settings file to determine if the app was locked
-	return YES;
+{	
+	LCYAppSettings *appSettings = [self appSettings];	
+	return appSettings.lockScreenPasscodeIsOn;
 }
 
 - (void) lockApplication;
