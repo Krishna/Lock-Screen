@@ -13,11 +13,13 @@
 @interface LCYLockSettingsViewController : UITableViewController  <LCYPassCodeEditorDelegate>
 {
 	NSArray *sectionTitles_;
-	BOOL passCodeLockIsOn_;
 }
 
 // LCYPassCodeEditorDelegate protocol...
 - (void) passcodeEditor: (LCYPassCodeEditorViewController *) passcodeEditor newCode:(NSString *) newCode;
 
+- (BOOL) passCodeLockIsOn;
+- (NSString *) currentPasscode;
+- (void) updatePasscodeSettings: (NSString *) newCode;
 
 @end

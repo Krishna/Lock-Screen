@@ -7,6 +7,8 @@
 //
 
 #import "LCYLockSettingsViewController.h"
+#import "LockScreenAppDelegate.h"
+#import "LCYAppSettings.h"
 
 @interface LCYLockSettingsViewController()
 - (void) handleTogglePasscode;
@@ -87,8 +89,8 @@
 	NSInteger section = indexPath.section;
 
 	if (section == 0)
-	{
-		cell.textLabel.text = passCodeLockIsOn_ ? @"Turn Passcode Off" : @"Turn Passcode On";
+	{			
+		cell.textLabel.text = [self passCodeLockIsOn] ? @"Turn Passcode Off" : @"Turn Passcode On";
 		cell.textLabel.textAlignment = UITextAlignmentCenter;
 		return;
 	}
@@ -97,8 +99,11 @@
 	{
 		cell.textLabel.text = @"Change Passcode";
 		cell.textLabel.textAlignment = UITextAlignmentCenter;		
-		cell.textLabel.enabled = passCodeLockIsOn_;
-		cell.userInteractionEnabled = passCodeLockIsOn_;
+		
+		BOOL passCodeLockIsOn = [self passCodeLockIsOn];
+		
+		cell.textLabel.enabled = passCodeLockIsOn;
+		cell.userInteractionEnabled = passCodeLockIsOn;
 		return;	
 	}
 	
@@ -143,10 +148,10 @@
 	NSLog(@"%s", _cmd);
 
 	LCYPassCodeEditorViewController *passCodeEditor = [[LCYPassCodeEditorViewController alloc] initWithNibName:@"LCYPassCodeEditorViewController" bundle:nil];
-	passCodeEditor.passCode = @"7890";
+	passCodeEditor.passCode = [self currentPasscode];
 	passCodeEditor.delegate = self;
 	
-	if (passCodeLockIsOn_)
+	if ([self passCodeLockIsOn])
 	{
 		[passCodeEditor attemptToDisablePassCode];
 	}
@@ -164,7 +169,7 @@
 - (void) handleChangePasscode;
 {
 	NSLog(@"%s", _cmd);
-	if (passCodeLockIsOn_)
+	if ([self passCodeLockIsOn])
 	{
 		// ask user for passcode input
 		// ask user for new passcode
@@ -177,7 +182,37 @@
 	}
 }
 
+- (BOOL) passCodeLockIsOn;
+{
+	id applicationDelegate = [[UIApplication sharedApplication] delegate];
+	LCYAppSettings *appSettings = [applicationDelegate appSettings];			
+	return appSettings.lockScreenPasscodeIsOn;	
+}
 
+- (NSString *) currentPasscode;
+{
+	id applicationDelegate = [[UIApplication sharedApplication] delegate];
+	LCYAppSettings *appSettings = [applicationDelegate appSettings];			
+	return appSettings.lockScreenPasscode;		
+}
+
+- (void) updatePasscodeSettings: (NSString *) newCode;
+{
+	id applicationDelegate = [[UIApplication sharedApplication] delegate];
+	LCYAppSettings *appSettings = [applicationDelegate appSettings];			
+	
+	if (newCode == nil)
+	{
+		appSettings.lockScreenPasscodeIsOn = NO;		
+	}
+	else 
+	{
+		appSettings.lockScreenPasscodeIsOn = YES;
+		appSettings.lockScreenPasscode = newCode;
+	}
+
+	[appSettings synchronize];
+}
 
 #pragma mark -
 #pragma mark LCYPassCodeEditorDelegate protocol implementation...
@@ -185,16 +220,7 @@
 {
 	NSLog(@"editor: %@ | newCode: %@", passcodeEditor, newCode);
 	[self.navigationController dismissModalViewControllerAnimated:YES];
-	if (newCode)
-	{
-		// TODO: save the new passcode
-		passCodeLockIsOn_ = YES;
-	}
-	else 
-	{
-		passCodeLockIsOn_ = NO;
-	}
-
+	[self updatePasscodeSettings:newCode];	
 	[self.tableView reloadData];	
 }
 
