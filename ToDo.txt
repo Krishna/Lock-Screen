@@ -1,5 +1,1 @@
 To Do
-
-- Pretty up the UI:
-	- proper lock digits views
-	- gradients on the banners for the lock screen
