@@ -149,7 +149,7 @@
 - (BOOL) authenticatePassCode: (NSString *) userInput;
 {
 	BOOL result = NO;
-	NSLog(@"userInput: %@", userInput);
+	//NSLog(@"userInput: %@", userInput);
 	
 	if ( [userInput isEqualToString:[self passCode]] )
 	{
@@ -175,7 +175,7 @@
 - (void) handleCompleteUserInput:(NSString *) userInput;
 {
 	[stateMachine_ transitionWithInput:userInput];
-	NSLog(@"stateMachine_: %@", stateMachine_);
+	//NSLog(@"stateMachine_: %@", stateMachine_);
 	
 	if ([stateMachine_ gotCompletionState])
 	{
@@ -191,28 +191,6 @@
 	}
 
 }
-
-
-/*
-- (void) handleCompleteUserInput:(NSString *) userInput;
-{
-	NSLog(@"%s got: %@", _cmd, userInput);
-//	[self resetUIState];
-		
-	if ( [self authenticatePassCode: userInput] )
-	{
-		NSLog(@"authenticated ok");		
-	}
-	
-	NSLog(@"digits container frame: %@", NSStringFromCGRect(self.digitsContainerView.frame));
-	
-	// newPassCode = userInput
-	// animate digits going off left of screen
-	[self scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo:@"Re-enter your new passcode"];
-	
-	// change label to: Re-enter your new passcode
-}
-*/
 
 - (void) scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo: (NSString *) newPrompt errorText: (NSString *) errorText;
 {
@@ -261,7 +239,6 @@
 - (void) lockDigitsScrollBackOnScreenDidStop: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context; 
 {
 	acceptInput_ = YES;
-	NSLog(@"animation finito");
 }
 
 @end
