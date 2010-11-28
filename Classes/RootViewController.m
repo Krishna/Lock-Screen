@@ -37,6 +37,8 @@
     [super viewDidLoad];
 	//	NSString *myfile = [[NSBundle mainBundle] pathForResource:@"Foods" ofType:@"plist"];
 	//	[self loadTableDataFromPath:myfile];	
+
+	self.title = @"Main Root";
 	
 	NSDictionary *dataForTable = [[NSDictionary alloc] initWithObjectsAndKeys:
 								  // section titles...
