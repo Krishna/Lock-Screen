@@ -11,6 +11,10 @@
 static NSString * const K_LOCK_SCREEN_PASSCODE_IS_ON = @"lockScreenPasscodeIsOn";
 static NSString * const K_LOCK_SCREEN_PASSCODE = @"lockScreenPasscode";
 
+@interface LCYAppSettings()
+- (void) updateProperties;
+@end
+
 @implementation LCYAppSettings
 
 @synthesize lockScreenPasscodeIsOn = lockScreenPasscodeIsOn_;
@@ -26,10 +30,7 @@ static NSString * const K_LOCK_SCREEN_PASSCODE = @"lockScreenPasscode";
 {
 	if ( (self = [super init]) )
 	{
-		NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-
-		self.lockScreenPasscodeIsOn = [userDefaults boolForKey:K_LOCK_SCREEN_PASSCODE_IS_ON];
-		lockScreenPasscode_ = [userDefaults stringForKey:K_LOCK_SCREEN_PASSCODE];
+		[self updateProperties];
 	}
 	return self;
 }
@@ -43,11 +44,25 @@ static NSString * const K_LOCK_SCREEN_PASSCODE = @"lockScreenPasscode";
 
 	// as we cant store a nil value in the dictionary, we store an empty string to represent no passcode.
 	NSString *passcodeToSave = (self.lockScreenPasscodeIsOn) ? self.lockScreenPasscode : @"" ;
+NSLog(@"passcodeToSave: %@", passcodeToSave);
+	
 	[userDefaults setObject:passcodeToSave forKey:K_LOCK_SCREEN_PASSCODE];
 	
-	return [userDefaults synchronize];
+	BOOL result = [userDefaults synchronize];
+	if (result)
+	{
+		[self updateProperties];
+	}
+	return result;
 }
 
+
+- (void) updateProperties;
+{
+	NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];	
+	self.lockScreenPasscodeIsOn = [userDefaults boolForKey:K_LOCK_SCREEN_PASSCODE_IS_ON];
+	lockScreenPasscode_ = [userDefaults stringForKey:K_LOCK_SCREEN_PASSCODE];	
+}
 
 
 @end
