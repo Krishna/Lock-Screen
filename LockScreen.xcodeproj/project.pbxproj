@@ -20,6 +20,7 @@
 		D79A38B912A16C5A00BF7C82 /* LCYAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = D79A38B812A16C5A00BF7C82 /* LCYAppSettings.m */; };
 		D79A398712A289B600BF7C82 /* LCYPasscodeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79A398612A289B600BF7C82 /* LCYPasscodeInputViewController.m */; };
 		D79A3A5012A2B3C800BF7C82 /* LCYLockDigitView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79A3A4F12A2B3C800BF7C82 /* LCYLockDigitView.m */; };
+		D79A3A8512A2C67900BF7C82 /* LCYBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D79A3A8412A2C67900BF7C82 /* LCYBannerView.m */; };
 		D7A25D81129C854D0028E793 /* LCYChangePasscodeStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A25D80129C854D0028E793 /* LCYChangePasscodeStateMachine.m */; };
 		D7B0BDB6128701900023F4C1 /* LCYLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */; };
 		D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */; };
@@ -55,6 +56,8 @@
 		D79A398612A289B600BF7C82 /* LCYPasscodeInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYPasscodeInputViewController.m; sourceTree = "<group>"; };
 		D79A3A4E12A2B3C800BF7C82 /* LCYLockDigitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYLockDigitView.h; sourceTree = "<group>"; };
 		D79A3A4F12A2B3C800BF7C82 /* LCYLockDigitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYLockDigitView.m; sourceTree = "<group>"; };
+		D79A3A8312A2C67900BF7C82 /* LCYBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYBannerView.h; sourceTree = "<group>"; };
+		D79A3A8412A2C67900BF7C82 /* LCYBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYBannerView.m; sourceTree = "<group>"; };
 		D7A25D7F129C854D0028E793 /* LCYChangePasscodeStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYChangePasscodeStateMachine.h; sourceTree = "<group>"; };
 		D7A25D80129C854D0028E793 /* LCYChangePasscodeStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYChangePasscodeStateMachine.m; sourceTree = "<group>"; };
 		D7B0BDB3128701900023F4C1 /* LCYLockScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYLockScreenViewController.h; sourceTree = "<group>"; };
@@ -195,6 +198,15 @@
 			name = "Lock Digit View";
 			sourceTree = "<group>";
 		};
+		D79A3A8212A2C66800BF7C82 /* Banner View */ = {
+			isa = PBXGroup;
+			children = (
+				D79A3A8312A2C67900BF7C82 /* LCYBannerView.h */,
+				D79A3A8412A2C67900BF7C82 /* LCYBannerView.m */,
+			);
+			name = "Banner View";
+			sourceTree = "<group>";
+		};
 		D7A25D7E129C84510028E793 /* Pass Code State Machine */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +225,7 @@
 		D7B0BDB21287017B0023F4C1 /* Lock Screen */ = {
 			isa = PBXGroup;
 			children = (
+				D79A3A8212A2C66800BF7C82 /* Banner View */,
 				D7B0BDB3128701900023F4C1 /* LCYLockScreenViewController.h */,
 				D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */,
 				D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */,
@@ -318,6 +331,7 @@
 				D79A38B912A16C5A00BF7C82 /* LCYAppSettings.m in Sources */,
 				D79A398712A289B600BF7C82 /* LCYPasscodeInputViewController.m in Sources */,
 				D79A3A5012A2B3C800BF7C82 /* LCYLockDigitView.m in Sources */,
+				D79A3A8512A2C67900BF7C82 /* LCYBannerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
