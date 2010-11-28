@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LCYPasscodeUIStateMachine.h"
+#import "LCYPasscodeInputViewController.h"
 
 @class LCYPassCodeEditorViewController;
 @class LCYChangePasscodeStateMachine;
@@ -18,17 +19,9 @@
 - (void) passcodeEditor: (LCYPassCodeEditorViewController *) passcodeEditor newCode:(NSString *) newCode;
 @end
 
-@interface LCYPassCodeEditorViewController : UIViewController <UITextFieldDelegate>
+@interface LCYPassCodeEditorViewController : LCYPasscodeInputViewController
 {
 	id<LCYPassCodeEditorDelegate> delegate_;
-	
-	
-	UIView *lockDigit_0_;
-	UIView *lockDigit_1_;
-	UIView *lockDigit_2_;
-	UIView *lockDigit_3_;
-	
-	UITextField *passCodeInputField_;
 	
 	UIView *digitsContainerView_;
 
@@ -45,13 +38,6 @@
 }
 
 @property (nonatomic, assign) IBOutlet id<LCYPassCodeEditorDelegate> delegate;
-
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_0;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_1;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_2;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_3;
-
-@property (nonatomic, retain) IBOutlet UITextField *passCodeInputField;
 
 @property (nonatomic, retain) IBOutlet UIView *digitsContainerView;
 @property (nonatomic, retain) IBOutlet UILabel *promptLabel;

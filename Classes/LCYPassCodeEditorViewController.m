@@ -15,14 +15,10 @@
 
 - (void) makeCancelButton;
 
-- (void) adjustLockDigitsForDeletePress;
-- (void) updateLockDigitsForKeyPress;
-- (void) setLockDigit: (int) lockDigitPosition isOn: (BOOL) on;
-- (BOOL) haveCompletePassCode;
 - (BOOL) authenticatePassCode: (NSString *) userInput;
 - (void) resetUIState;
-
 - (void) handleCompleteUserInput:(NSString *) userInput;
+
 - (void) scrollLockDigitsOffLeftSideOfScreenAndSetPromptTo: (NSString *) newPrompt errorText: (NSString *) errorText;
 - (void) moveLockDigitsToOffscreenRight;
 - (void) scrollLockDigitsFromRightOfScreenBackToCenter;
@@ -33,16 +29,7 @@
 
 @implementation LCYPassCodeEditorViewController
 
-const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
-
 @synthesize delegate = delegate_;
-
-@synthesize lockDigit_0 = lockDigit_0_;
-@synthesize lockDigit_1 = lockDigit_1_;
-@synthesize lockDigit_2 = lockDigit_2_;
-@synthesize lockDigit_3 = lockDigit_3_;
-
-@synthesize passCodeInputField = passCodeInputField_;
 
 @synthesize digitsContainerView = digitsContainerView_;
 @synthesize promptLabel = promptLabel_;
@@ -53,13 +40,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 - (void) dealloc 
 {
 	self.delegate = nil;
-	
-	self.passCodeInputField = nil;
-	self.lockDigit_0 = nil;
-	self.lockDigit_1 = nil;
-	self.lockDigit_2 = nil;
-	self.lockDigit_3 = nil;	
-	
+		
 	self.digitsContainerView = nil;
 	self.promptLabel = nil;
 	self.errorLabel = nil;
@@ -99,12 +80,6 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 - (void) viewDidUnload 
 {
     [super viewDidUnload];
-
-	self.passCodeInputField = nil;
-	self.lockDigit_0 = nil;
-	self.lockDigit_1 = nil;
-	self.lockDigit_2 = nil;
-	self.lockDigit_3 = nil;	
 	
 	self.digitsContainerView = nil;
 	self.promptLabel = nil;
@@ -116,7 +91,6 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 	[super viewWillAppear: animated];
 //	[self showBanner:self.enterPassCodeBanner];
 	self.promptLabel.text = [stateMachine_ currentPromptText];
-	[self.passCodeInputField becomeFirstResponder];	
 	acceptInput_ = YES;
 }
 
@@ -172,56 +146,6 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 #pragma mark LCYPassCodeEditorViewController(InputHandling) / copied from LCYLockScreenViewController
 
 
-- (void) adjustLockDigitsForDeletePress;
-{
-	if (self.passCodeInputField.text.length > 0)
-	{
-		int lockDigitPosition = self.passCodeInputField.text.length - 1;		
-		[self setLockDigit: lockDigitPosition isOn: NO];		
-	}
-}
-
-- (void) updateLockDigitsForKeyPress;
-{
-	int lockDigitPosition = self.passCodeInputField.text.length;
-	[self setLockDigit: lockDigitPosition isOn: YES];
-}
-
-
-- (void) setLockDigit: (int) lockDigitPosition isOn: (BOOL) on;
-{	
-	UIColor *colorForLockDigit = on ? [UIColor redColor] : [UIColor whiteColor];
-	
-	switch (lockDigitPosition) 
-	{
-		case 0:
-			self.lockDigit_0.backgroundColor = colorForLockDigit;
-			break;
-			
-		case 1:
-			self.lockDigit_1.backgroundColor = colorForLockDigit;			
-			break;
-			
-		case 2:
-			self.lockDigit_2.backgroundColor = colorForLockDigit;			
-			break;
-			
-		case 3:
-			self.lockDigit_3.backgroundColor = colorForLockDigit;		
-			break;
-			
-		default:
-			NSAssert(NO, @"Input exceeded number of lock digits");
-			break;
-	}
-	
-}
-
-- (BOOL) haveCompletePassCode;
-{
-	return (self.passCodeInputField.text.length == PASSCODE_EDITOR_PASSCODE_LENGTH - 1);
-}
-
 - (BOOL) authenticatePassCode: (NSString *) userInput;
 {
 	BOOL result = NO;
@@ -243,11 +167,7 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 
 - (void) resetUIState;
 {
-	self.passCodeInputField.text = @"";
-	[self setLockDigit: 0 isOn: NO];
-	[self setLockDigit: 1 isOn: NO];
-	[self setLockDigit: 2 isOn: NO];
-	[self setLockDigit: 3 isOn: NO];
+	[super resetUIState];
 	acceptInput_ = YES;
 }
 
@@ -351,33 +271,13 @@ const int PASSCODE_EDITOR_PASSCODE_LENGTH = 4;
 
 - (BOOL) textField: (UITextField *) textField shouldChangeCharactersInRange: (NSRange) range replacementString: (NSString *) string;   // return NO to not change text
 {
-	//	NSLog(@"%s - range: %@ | replacementString: %@ | textfield length: %d", _cmd, NSStringFromRange(range), string, self.passCodeInputField.text.length);
-	
-	// passCodeInputField.text.length is the length BEFORE we add the character the user just enetered.
-	
 	if (!acceptInput_)
 	{
 		return NO;
 	}
 	
-	BOOL acceptInputChanges = YES;
+	return [super textField: textField shouldChangeCharactersInRange: range replacementString: string];
 	
-	if (range.length == 1 && [string length] == 0)
-	{
-		NSLog(@"got a delete press");
-		[self adjustLockDigitsForDeletePress];
-	}
-	else 
-	{
-		[self updateLockDigitsForKeyPress];
-		if ([self haveCompletePassCode])
-		{
-			NSString *completeUserInput = [NSString stringWithFormat:@"%@%@", self.passCodeInputField.text, string]; 
-			[self performSelector:@selector(handleCompleteUserInput:) withObject:completeUserInput afterDelay:0.1];
-		}
-	}
-	
-	return acceptInputChanges;
 }
 
 @end
