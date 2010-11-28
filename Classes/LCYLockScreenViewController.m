@@ -18,8 +18,9 @@
 - (void) setLockDigit: (int) lockDigit isOn: (BOOL) on;
 - (BOOL) haveCompletePassCode;
 - (BOOL) authenticatePassCode: (NSString *) userInput;
-
 - (void) resetUIState;
+
+- (void) handleCompleteUserInput:(NSString *) userInput;
 
 - (void) showBanner: (UIView *) bannerView;
 - (void) hideBanner: (UIView *) bannerView;
@@ -181,6 +182,16 @@ const int PASSCODE_LENGTH = 4;
 	[self setLockDigit: 3 isOn: NO];		
 }
 
+
+- (void) handleCompleteUserInput:(NSString *) userInput;
+{
+	if ( [self authenticatePassCode: userInput] )	
+	{
+		[self.delegate lockScreen:self unlockedApp:YES];
+	}	
+}
+
+
 - (void) showBanner: (UIView *) bannerView;
 {	
 	if ( ![self isShowingBanner:bannerView] )
@@ -235,15 +246,7 @@ const int PASSCODE_LENGTH = 4;
 		if ([self haveCompletePassCode])
 		{
 			NSString *completeUserInput = [NSString stringWithFormat:@"%@%@", self.passCodeInputField.text, string]; 
-			if ( [self authenticatePassCode: completeUserInput] )
-			{
-				[self.delegate lockScreen:self unlockedApp:YES];
-			}
-			else 
-			{
-				acceptInputChanges = NO;
-			}
-
+			[self performSelector:@selector(handleCompleteUserInput:) withObject:completeUserInput afterDelay:0.1];
 		}
 	}
 	
