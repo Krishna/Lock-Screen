@@ -7,6 +7,7 @@
 //
 
 #import "LCYPasscodeInputViewController.h"
+#import "LCYLockDigitView.h"
 
 @interface LCYPasscodeInputViewController()
 
@@ -89,24 +90,26 @@ const int PASSCODE_INPUT_HANDLER_PASSCODE_LENGTH = 4;
 
 - (void) setLockDigit: (int) lockDigitPosition isOn: (BOOL) on;
 {	
-	UIColor *colorForLockDigit = on ? [UIColor redColor] : [UIColor whiteColor];
-	
 	switch (lockDigitPosition) 
 	{
 		case 0:
-			self.lockDigit_0.backgroundColor = colorForLockDigit;
+			self.lockDigit_0.isFilled = on;
+			[self.lockDigit_0 setNeedsDisplay];
 			break;
 			
 		case 1:
-			self.lockDigit_1.backgroundColor = colorForLockDigit;			
+			self.lockDigit_1.isFilled = on;
+			[self.lockDigit_1 setNeedsDisplay];
 			break;
 			
 		case 2:
-			self.lockDigit_2.backgroundColor = colorForLockDigit;			
+			self.lockDigit_2.isFilled = on;
+			[self.lockDigit_2 setNeedsDisplay];
 			break;
 			
 		case 3:
-			self.lockDigit_3.backgroundColor = colorForLockDigit;		
+			self.lockDigit_3.isFilled = on;
+			[self.lockDigit_3 setNeedsDisplay];
 			break;
 			
 		default:

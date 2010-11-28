@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="4"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -52,12 +52,9 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{13, 4}, {57, 58}}</string>
 								<reference key="NSSuperview" ref="1007790361"/>
-								<object class="NSColor" key="IBUIBackgroundColor">
+								<object class="NSColor" key="IBUIBackgroundColor" id="382882205">
 									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-									<object class="NSColorSpace" key="NSCustomColorSpace" id="985260774">
-										<int key="NSID">2</int>
-									</object>
+									<bytes key="NSWhite">MCAwAA</bytes>
 								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
@@ -66,11 +63,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{82, 4}, {57, 58}}</string>
 								<reference key="NSSuperview" ref="1007790361"/>
-								<object class="NSColor" key="IBUIBackgroundColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-									<reference key="NSCustomColorSpace" ref="985260774"/>
-								</object>
+								<reference key="IBUIBackgroundColor" ref="382882205"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 							<object class="IBUIView" id="951684788">
@@ -78,11 +71,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{150, 4}, {57, 58}}</string>
 								<reference key="NSSuperview" ref="1007790361"/>
-								<object class="NSColor" key="IBUIBackgroundColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-									<reference key="NSCustomColorSpace" ref="985260774"/>
-								</object>
+								<reference key="IBUIBackgroundColor" ref="382882205"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 							<object class="IBUIView" id="14749148">
@@ -90,20 +79,13 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{217, 4}, {57, 58}}</string>
 								<reference key="NSSuperview" ref="1007790361"/>
-								<object class="NSColor" key="IBUIBackgroundColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MQA</bytes>
-									<reference key="NSCustomColorSpace" ref="985260774"/>
-								</object>
+								<reference key="IBUIBackgroundColor" ref="382882205"/>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</object>
 						<string key="NSFrame">{{20, 60}, {289, 65}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="382882205">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MCAwAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="382882205"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<object class="IBUILabel" id="522707087">
@@ -162,7 +144,9 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
-							<reference key="NSCustomColorSpace" ref="985260774"/>
+							<object class="NSColorSpace" key="NSCustomColorSpace">
+								<int key="NSID">2</int>
+							</object>
 						</object>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
@@ -398,12 +382,16 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<string>4.IBPluginDependency</string>
 					<string>4.IBViewBoundsToFrameTransform</string>
 					<string>5.IBPluginDependency</string>
+					<string>6.CustomClassName</string>
 					<string>6.IBPluginDependency</string>
 					<string>6.IBViewBoundsToFrameTransform</string>
+					<string>7.CustomClassName</string>
 					<string>7.IBPluginDependency</string>
 					<string>7.IBViewBoundsToFrameTransform</string>
+					<string>8.CustomClassName</string>
 					<string>8.IBPluginDependency</string>
 					<string>8.IBViewBoundsToFrameTransform</string>
+					<string>9.CustomClassName</string>
 					<string>9.IBPluginDependency</string>
 					<string>9.IBViewBoundsToFrameTransform</string>
 				</object>
@@ -411,7 +399,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>LCYPassCodeEditorViewController</string>
 					<string>UIResponder</string>
-					<string>{{962, 88}, {320, 480}}</string>
+					<string>{{941, 676}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
@@ -426,18 +414,22 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<bytes key="NSTransformStruct">P4AAAL+AAABBoAAAwwgAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>LCYLockDigitView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AUHgAABC/gAAA</bytes>
 					</object>
+					<string>LCYLockDigitView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AULCAABC/gAAA</bytes>
 					</object>
+					<string>LCYLockDigitView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AUMlAABC/gAAA</bytes>
 					</object>
+					<string>LCYLockDigitView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSAffineTransform">
 						<bytes key="NSTransformStruct">AUNoAABC/gAAA</bytes>
@@ -466,8 +458,16 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
+					<string key="className">LCYLockDigitView</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/LCYLockDigitView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">LCYPassCodeEditorViewController</string>
-					<string key="superclassName">UIViewController</string>
+					<string key="superclassName">LCYPasscodeInputViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<string key="NS.key.0">cancel</string>
 						<string key="NS.object.0">id</string>
@@ -487,11 +487,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string>delegate_</string>
 							<string>digitsContainerView</string>
 							<string>errorLabel</string>
-							<string>lockDigit_0</string>
-							<string>lockDigit_1</string>
-							<string>lockDigit_2</string>
-							<string>lockDigit_3</string>
-							<string>passCodeInputField</string>
 							<string>promptLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -500,11 +495,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string>id</string>
 							<string>UIView</string>
 							<string>UILabel</string>
-							<string>UIView</string>
-							<string>UIView</string>
-							<string>UIView</string>
-							<string>UIView</string>
-							<string>UITextField</string>
 							<string>UILabel</string>
 						</object>
 					</object>
@@ -516,11 +506,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<string>delegate_</string>
 							<string>digitsContainerView</string>
 							<string>errorLabel</string>
-							<string>lockDigit_0</string>
-							<string>lockDigit_1</string>
-							<string>lockDigit_2</string>
-							<string>lockDigit_3</string>
-							<string>passCodeInputField</string>
 							<string>promptLabel</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -542,26 +527,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">lockDigit_0</string>
-								<string key="candidateClassName">UIView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">lockDigit_1</string>
-								<string key="candidateClassName">UIView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">lockDigit_2</string>
-								<string key="candidateClassName">UIView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">lockDigit_3</string>
-								<string key="candidateClassName">UIView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">passCodeInputField</string>
-								<string key="candidateClassName">UITextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">promptLabel</string>
 								<string key="candidateClassName">UILabel</string>
 							</object>
@@ -570,6 +535,67 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/LCYPassCodeEditorViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">LCYPasscodeInputViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>lockDigit_0</string>
+							<string>lockDigit_1</string>
+							<string>lockDigit_2</string>
+							<string>lockDigit_3</string>
+							<string>passCodeInputField</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>LCYLockDigitView</string>
+							<string>LCYLockDigitView</string>
+							<string>LCYLockDigitView</string>
+							<string>LCYLockDigitView</string>
+							<string>UITextField</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>lockDigit_0</string>
+							<string>lockDigit_1</string>
+							<string>lockDigit_2</string>
+							<string>lockDigit_3</string>
+							<string>passCodeInputField</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">lockDigit_0</string>
+								<string key="candidateClassName">LCYLockDigitView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">lockDigit_1</string>
+								<string key="candidateClassName">LCYLockDigitView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">lockDigit_2</string>
+								<string key="candidateClassName">LCYLockDigitView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">lockDigit_3</string>
+								<string key="candidateClassName">LCYLockDigitView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">passCodeInputField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/LCYPasscodeInputViewController.h</string>
 					</object>
 				</object>
 			</object>

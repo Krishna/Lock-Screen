@@ -8,21 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class LCYLockDigitView;
 
 @interface LCYPasscodeInputViewController : UIViewController <UITextFieldDelegate>
 {
-	UIView *lockDigit_0_;
-	UIView *lockDigit_1_;
-	UIView *lockDigit_2_;
-	UIView *lockDigit_3_;
+	LCYLockDigitView *lockDigit_0_;
+	LCYLockDigitView *lockDigit_1_;
+	LCYLockDigitView *lockDigit_2_;
+	LCYLockDigitView *lockDigit_3_;
 	
 	UITextField *passCodeInputField_;	
 }
 
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_0;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_1;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_2;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_3;
+@property (nonatomic, retain) IBOutlet LCYLockDigitView *lockDigit_0;
+@property (nonatomic, retain) IBOutlet LCYLockDigitView *lockDigit_1;
+@property (nonatomic, retain) IBOutlet LCYLockDigitView *lockDigit_2;
+@property (nonatomic, retain) IBOutlet LCYLockDigitView *lockDigit_3;
 
 @property (nonatomic, retain) IBOutlet UITextField *passCodeInputField;
 
