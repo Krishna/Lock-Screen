@@ -88,14 +88,13 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D79A398412A2896200BF7C82 /* Passcode Input Handler */,
 				D79A38AF12A16BE900BF7C82 /* App Settings */,
-				D7A25D7E129C84510028E793 /* Pass Code State Machine */,
+				D79A398412A2896200BF7C82 /* Passcode Input Handler */,
 				D791819A129A957800F3C567 /* Pass Code Editor */,
+				D7B0BDB21287017B0023F4C1 /* Lock Screen */,
 				D7EBD2DD1299F04B002DE800 /* Lock Screen Settings */,
 				D7EBD2A11299EB5D002DE800 /* LCYDataBackedTableView.h */,
 				D7EBD2A21299EB5D002DE800 /* LCYDataBackedTableView.m */,
-				D7B0BDB21287017B0023F4C1 /* Lock Screen */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* LockScreenAppDelegate.h */,
@@ -157,6 +156,7 @@
 		D791819A129A957800F3C567 /* Pass Code Editor */ = {
 			isa = PBXGroup;
 			children = (
+				D7A25D7E129C84510028E793 /* Pass Code State Machine */,
 				D79181A2129A95F800F3C567 /* LCYPassCodeEditorViewController.h */,
 				D79181A3129A95F800F3C567 /* LCYPassCodeEditorViewController.m */,
 				D79181A4129A95F800F3C567 /* LCYPassCodeEditorViewController.xib */,
