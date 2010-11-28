@@ -84,9 +84,21 @@
 
 - (IBAction) lockScreen: (id) sender;
 {
-	NSLog(@"lock the screen here");
 	LockScreenAppDelegate *appDelegate =  (LockScreenAppDelegate *)	[[UIApplication sharedApplication] delegate];
-	[appDelegate lockApplication];
+
+	NSLog(@"app passcode is: %@", [appDelegate appLockPasscode]);	
+	
+	if ([appDelegate isAppLocked])
+	{		
+		[appDelegate lockApplication];
+	}
+	else 
+	{
+		UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Need to set Passcode" message:@"U jelly?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[av show];
+		[av release];
+	}
+
 }
 
 #pragma mark -
