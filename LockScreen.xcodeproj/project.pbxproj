@@ -18,6 +18,7 @@
 		D79181A5129A95F800F3C567 /* LCYPassCodeEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79181A3129A95F800F3C567 /* LCYPassCodeEditorViewController.m */; };
 		D79181A6129A95F800F3C567 /* LCYPassCodeEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D79181A4129A95F800F3C567 /* LCYPassCodeEditorViewController.xib */; };
 		D79A38B912A16C5A00BF7C82 /* LCYAppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = D79A38B812A16C5A00BF7C82 /* LCYAppSettings.m */; };
+		D79A398712A289B600BF7C82 /* LCYPasscodeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D79A398612A289B600BF7C82 /* LCYPasscodeInputViewController.m */; };
 		D7A25D81129C854D0028E793 /* LCYChangePasscodeStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A25D80129C854D0028E793 /* LCYChangePasscodeStateMachine.m */; };
 		D7B0BDB6128701900023F4C1 /* LCYLockScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B0BDB4128701900023F4C1 /* LCYLockScreenViewController.m */; };
 		D7B0BDB7128701900023F4C1 /* LCYLockScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7B0BDB5128701900023F4C1 /* LCYLockScreen.xib */; };
@@ -49,6 +50,8 @@
 		D79181A4129A95F800F3C567 /* LCYPassCodeEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCYPassCodeEditorViewController.xib; sourceTree = "<group>"; };
 		D79A38B712A16C5A00BF7C82 /* LCYAppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYAppSettings.h; sourceTree = "<group>"; };
 		D79A38B812A16C5A00BF7C82 /* LCYAppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYAppSettings.m; sourceTree = "<group>"; };
+		D79A398512A289B600BF7C82 /* LCYPasscodeInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYPasscodeInputViewController.h; sourceTree = "<group>"; };
+		D79A398612A289B600BF7C82 /* LCYPasscodeInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYPasscodeInputViewController.m; sourceTree = "<group>"; };
 		D7A25D7F129C854D0028E793 /* LCYChangePasscodeStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYChangePasscodeStateMachine.h; sourceTree = "<group>"; };
 		D7A25D80129C854D0028E793 /* LCYChangePasscodeStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCYChangePasscodeStateMachine.m; sourceTree = "<group>"; };
 		D7B0BDB3128701900023F4C1 /* LCYLockScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCYLockScreenViewController.h; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D79A398412A2896200BF7C82 /* Passcode Input Handler */,
 				D79A38AF12A16BE900BF7C82 /* App Settings */,
 				D7A25D7E129C84510028E793 /* Pass Code State Machine */,
 				D791819A129A957800F3C567 /* Pass Code Editor */,
@@ -167,6 +171,15 @@
 				D79A38B812A16C5A00BF7C82 /* LCYAppSettings.m */,
 			);
 			name = "App Settings";
+			sourceTree = "<group>";
+		};
+		D79A398412A2896200BF7C82 /* Passcode Input Handler */ = {
+			isa = PBXGroup;
+			children = (
+				D79A398512A289B600BF7C82 /* LCYPasscodeInputViewController.h */,
+				D79A398612A289B600BF7C82 /* LCYPasscodeInputViewController.m */,
+			);
+			name = "Passcode Input Handler";
 			sourceTree = "<group>";
 		};
 		D7A25D7E129C84510028E793 /* Pass Code State Machine */ = {
@@ -290,6 +303,7 @@
 				D7C5438E129EB62200ACAC4C /* LCYPasscodeUIStateMachine.m in Sources */,
 				D7C54475129F5AD800ACAC4C /* LCYSetPasscodeStateMachine.m in Sources */,
 				D79A38B912A16C5A00BF7C82 /* LCYAppSettings.m in Sources */,
+				D79A398712A289B600BF7C82 /* LCYPasscodeInputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
