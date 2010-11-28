@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCYPasscodeInputViewController.h"
 
 @class LCYLockScreenViewController;
 
@@ -15,16 +16,8 @@
 @end
 
 
-
-@interface LCYLockScreenViewController : UIViewController <UITextFieldDelegate>
-{
-	UIView *lockDigit_0_;
-	UIView *lockDigit_1_;
-	UIView *lockDigit_2_;
-	UIView *lockDigit_3_;
-	
-	UITextField *passCodeInputField_;
-	
+@interface LCYLockScreenViewController : LCYPasscodeInputViewController
+{		
 	UIView *enterPassCodeBanner_;
 	UIView *wrongPassCodeBanner_;
 	
@@ -33,12 +26,6 @@
 	NSString *passCode_;	
 }
 
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_0;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_1;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_2;
-@property (nonatomic, retain) IBOutlet UIView *lockDigit_3;
-
-@property (nonatomic, retain) IBOutlet UITextField *passCodeInputField;
 
 @property (nonatomic, retain) IBOutlet UIView *enterPassCodeBanner;
 @property (nonatomic, retain) IBOutlet UIView *wrongPassCodeBanner;
