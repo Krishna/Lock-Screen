@@ -1,0 +1,11 @@
+This project contains source code contributed by:
+
+# [Matt Gallagher](http://cocoawithlove.com) 
+
+The macros in the file LCYCompatibilityMacros.h are from: 
+
+http://cocoawithlove.com/2010/07/tips-tricks-for-conditional-ios3-ios32.html
+
+# [Krishna Kotecha](http://logiccolony.com)
+
+He's to blame for most of it. Use at your own risk, etc. 
