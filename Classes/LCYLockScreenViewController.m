@@ -67,6 +67,12 @@
 {
 	[super viewWillAppear: animated];
 	[self showBanner:self.enterPassCodeBanner];
+	
+	// iOS 3.0 compatibility: change the background colour to one that is available on earlier versions of the OS...
+	if (![UIColor respondsToSelector:@selector(scrollViewTexturedBackgroundColor)])
+	{
+		self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+	}
 }
 
 
@@ -76,7 +82,7 @@
 - (BOOL) authenticatePassCode: (NSString *) userInput;
 {
 	BOOL result = NO;
-	NSLog(@"userInput: %@", userInput);
+	//NSLog(@"userInput: %@", userInput);
 	
 	if ( [userInput isEqualToString:[self passCode]] )
 	{

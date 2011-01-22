@@ -7,6 +7,7 @@
 //
 
 #import "LCYLockDigitView.h"
+#import "LCYCompatibilityMacros.h"
 
 const CGFloat kDigitViewWidth = 80.0f;
 const CGFloat kDigitViewHeight = 80.0f;
@@ -42,11 +43,25 @@ const CGFloat kDigitViewHeight = 80.0f;
 		CGContextTranslateCTM(context, bounds.origin.x, bounds.origin.y);
 		CGContextScaleCTM(context, (bounds.size.width / imageBounds.size.width), (bounds.size.height / imageBounds.size.height));
 		
-		// Setup for Shadow Effect
-		color = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
-		CGContextSaveGState(context);
-		CGContextSetShadowWithColor(context, CGSizeMake(0.0f * resolution, 3.0f * resolution), 3.0f * resolution, [color CGColor]);
-		CGContextBeginTransparencyLayer(context, NULL);
+		// Setup for Shadow Effect...
+		// Shadow offsets are iOS version dependent. 
+		// See: https://developer.apple.com/library/ios/#qa/qa2010/qa1706.html
+		//
+		IF_IOS4_OR_GREATER
+		(
+			color = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
+			CGContextSaveGState(context);
+			CGContextSetShadowWithColor(context, CGSizeMake(0.0f * resolution, 3.0f * resolution), 3.0f * resolution, [color CGColor]);
+			CGContextBeginTransparencyLayer(context, NULL);
+		)
+		
+		IF_PRE_IOS4
+		(
+			 color = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
+			 CGContextSaveGState(context);
+			 CGContextSetShadowWithColor(context, CGSizeMake(0.0f * -resolution, 3.0f * -resolution), 3.0f * resolution, [color CGColor]);
+			 CGContextBeginTransparencyLayer(context, NULL);		 
+		)
 		
 		// Layer 1
 		
@@ -102,10 +117,24 @@ const CGFloat kDigitViewHeight = 80.0f;
 		CGContextScaleCTM(context, (bounds.size.width / imageBounds.size.width), (bounds.size.height / imageBounds.size.height));
 		
 		// Setup for Shadow Effect
-		color = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
-		CGContextSaveGState(context);
-		CGContextSetShadowWithColor(context, CGSizeMake(0.0f * resolution, 3.0f * resolution), 3.0f * resolution, [color CGColor]);
-		CGContextBeginTransparencyLayer(context, NULL);
+		// Shadow offsets are iOS version dependent. 
+		// See: https://developer.apple.com/library/ios/#qa/qa2010/qa1706.html
+		//
+		IF_IOS4_OR_GREATER
+		(		 
+			color = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
+			CGContextSaveGState(context);
+			CGContextSetShadowWithColor(context, CGSizeMake(0.0f * resolution, 3.0f * resolution), 3.0f * resolution, [color CGColor]);
+			CGContextBeginTransparencyLayer(context, NULL);
+		)
+		
+		IF_PRE_IOS4
+		(
+			 color = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.5f];
+			 CGContextSaveGState(context);
+			 CGContextSetShadowWithColor(context, CGSizeMake(0.0f * -resolution, 3.0f * -resolution), 3.0f * resolution, [color CGColor]);
+			 CGContextBeginTransparencyLayer(context, NULL);		 
+		)
 		
 		// Layer 1
 		

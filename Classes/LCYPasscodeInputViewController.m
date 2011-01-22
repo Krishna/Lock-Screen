@@ -147,7 +147,7 @@ const int PASSCODE_INPUT_HANDLER_PASSCODE_LENGTH = 4;
 	
 	if (range.length == 1 && [string length] == 0)
 	{
-		NSLog(@"got a delete press");
+		//NSLog(@"got a delete press");
 		[self adjustLockDigitsForDeletePress];
 	}
 	else 
