@@ -38,24 +38,24 @@
 	//	NSString *myfile = [[NSBundle mainBundle] pathForResource:@"Foods" ofType:@"plist"];
 	//	[self loadTableDataFromPath:myfile];	
 
-	self.title = @"Main Root";
+	self.title = @"Dummy Table";
 	
 	NSDictionary *dataForTable = [[NSDictionary alloc] initWithObjectsAndKeys:
 								  // section titles...
-								  @"Comics", @"sectionTitle0",
+								  @"Films", @"sectionTitle0",
 								  @"Settings", @"sectionTitle1",
 								  
 								  // data for section 0:
 								  [NSArray arrayWithObjects:
 								   [NSArray arrayWithObjects:
-									@"Batman", 
+									@"Wargames", 
 									@"dummySetting", 
-									@"detailDisclosureButton", 
+									@"", 
 									nil], 
 								   [NSArray arrayWithObjects:
-									@"Detective Comics", 
+									@"Tron", 
 									@"dummySetting", 
-									@"detailDisclosureButton", 
+									@"", 
 									nil], 
 								   
 								   nil], @"0",
@@ -94,7 +94,7 @@
 	}
 	else 
 	{
-		UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Need to set Passcode" message:@"U jelly?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Need to set Passcode" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[av show];
 		[av release];
 	}
