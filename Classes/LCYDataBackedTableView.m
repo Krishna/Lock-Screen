@@ -2,7 +2,7 @@
 //  LCYDataBackedTableView.m
 //
 //  Created by Krishna Kotecha on 27/11/2010.
-//  Copyright 2010 Logic Colony Ltd. All rights reserved.
+//  Copyright 2010 Krishna Kotecha. All rights reserved.
 //
 
 #import "LCYDataBackedTableView.h"
