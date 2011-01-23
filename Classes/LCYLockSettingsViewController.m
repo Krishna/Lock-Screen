@@ -12,7 +12,6 @@
 
 @interface LCYLockSettingsViewController()
 - (void) handleTogglePasscode;
-- (void) handleChangePasscode;
 @end
 
 
