@@ -62,7 +62,7 @@
 - (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView 
 {
     // Return the number of sections.
-    return 2;
+    return 1;
 }
 
 
@@ -72,9 +72,6 @@
 	
 	switch (section) {
 		case 0:
-			result = 1;
-			break;
-		case 1:
 			result = 1;
 			break;
 		default:
@@ -93,18 +90,6 @@
 		cell.textLabel.text = [self passCodeLockIsOn] ? @"Turn Passcode Off" : @"Turn Passcode On";
 		cell.textLabel.textAlignment = UITextAlignmentCenter;
 		return;
-	}
-	
-	if (section == 1)
-	{
-		cell.textLabel.text = @"Change Passcode";
-		cell.textLabel.textAlignment = UITextAlignmentCenter;		
-		
-		BOOL passCodeLockIsOn = [self passCodeLockIsOn];
-		
-		cell.textLabel.enabled = passCodeLockIsOn;
-		cell.userInteractionEnabled = passCodeLockIsOn;
-		return;	
 	}
 	
 }
@@ -135,12 +120,7 @@
 	if (indexPath.section == 0)
 	{
 		[self handleTogglePasscode];
-	}
-	
-	if (indexPath.section == 1)
-	{
-		[self handleChangePasscode];
-	}
+	}	
 }
 
 - (void) handleTogglePasscode;
@@ -164,22 +144,6 @@
 	[[self navigationController] presentModalViewController:navController animated:YES];
 	[passCodeEditor release];
 	[navController release];		
-}
-
-- (void) handleChangePasscode;
-{
-	NSLog(@"%s", _cmd);
-	if ([self passCodeLockIsOn])
-	{
-		// ask user for passcode input
-		// ask user for new passcode
-		// ask user for passcode confirm
-		// 
-	}
-	else 
-	{
-		NSAssert(NO, @"Unexpected case: should never reach here");
-	}
 }
 
 - (BOOL) passCodeLockIsOn;
