@@ -14,6 +14,4 @@ The macros in the file LCYCompatibilityMacros.h are from:
 
 [http://cocoawithlove.com/2010/07/tips-tricks-for-conditional-ios3-ios32.html](http://cocoawithlove.com/2010/07/tips-tricks-for-conditional-ios3-ios32.html)
 
-### [Krishna Kotecha](http://logiccolony.com)
-
-To blame for most of it. Use at your own risk, etc. 
+### [Logic Colony](http://logiccolony.com)
